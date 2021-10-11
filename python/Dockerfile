@@ -19,6 +19,10 @@ RUN groupadd -r python && useradd -r -g python python
 RUN pwd \
     ls /usr/src/app/scripts/hello.py -la
 
+RUN apt-get update \ 
+    && apt-get install -y apt-transport-https \
+    && apt-get install mariadb-client -y
+
 USER python
 
 RUN cd scripts
